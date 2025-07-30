@@ -47,3 +47,47 @@ struct Temp {
 let temp = Temp(cel: 30)
 
 print(temp.cel)
+
+
+//custom initializers
+struct Temperature {
+    var celsius: Double
+    
+    init(celsius: Double) {
+        self.celsius = celsius
+    }
+    
+    /*
+     init(cels: Double) {
+        celsius = cels
+     }
+     */
+    
+    init(fahreniet: Double) {
+        celsius = (fahreniet - 32) / 1.8
+    }
+}
+
+let currTemp = Temperature(celsius: 18.5)
+let boiling = Temperature(fahreniet: 212)
+
+print(currTemp.celsius)
+print(currTemp.self)
+
+print(boiling.celsius)
+print(boiling.self)
+
+struct Name {
+    var name: String
+    var age: Int
+    
+    
+    init() {
+    name = ""
+    age = 0
+    }
+}
+
+var name = Name()
+
+print(name)
