@@ -91,3 +91,63 @@ struct Name {
 var name = Name()
 
 print(name)
+
+struct Size {
+    var height: Double
+    var width: Double
+    
+    var area: Double { //computed property i.e. memory won't get allocated, its just temporary
+        height * width
+    }
+    mutating func inc()->Double{
+        area + 1
+    }
+    
+    func perameter() -> Double {
+        return 2 * (width + height)
+    }
+}
+
+var someSize = Size (
+    height: 12.4,
+    width: 52.1
+)
+
+//print("Area is: \(someSize.area())")
+//print("Perameter is: \(someSize.perameter())")
+
+print(someSize.inc())
+print(someSize.area)
+print(someSize.inc())
+
+struct Counter {
+    var count: Int = 0
+    
+    mutating func increment() -> Int { //mutating just like mut in rust
+        return count + 1
+    }
+    
+    mutating func decrement() -> Int {
+        return count - 1
+    }
+    
+    mutating func reset() -> Int {
+        return self.count
+    }
+    mutating func changeDef() {
+        self.count = 11
+        print(count)
+    }
+}
+
+var counter = Counter();
+
+print("Increment is: \(counter.increment())")
+print("Decrement is: \(counter.decrement())")
+print("Reset is: \(counter.reset())")
+
+counter.changeDef()
+var new1 = Counter()
+var new2 = counter
+print(new1.count)
+print(new2.count)
