@@ -189,3 +189,11 @@ struct Tempp {
 
 let boilingPoint = Tempp.boilingPoint
 let currentTemp = Tempp.convertToFahrenheit(99)
+
+
+//copying -> STRUCTS ARE VALUE TYPE
+var someSizes = Size(height: 123, width: 321)
+var anotherSizes = someSizes //even though copying, memory won't be allocated here. wheever we do any change then only the memory will be created
+
+print(someSizes)
+print(anotherSizes)
