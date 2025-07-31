@@ -197,3 +197,5 @@ var anotherSizes = someSizes //even though copying, memory won't be allocated he
 
 print(someSizes)
 print(anotherSizes)
+
+//self is required in custom initializers only and not everywhere just like RUST HAS SELF INSIDE TRAITS
