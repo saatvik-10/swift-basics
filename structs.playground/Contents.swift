@@ -151,3 +151,41 @@ var new1 = Counter()
 var new2 = counter
 print(new1.count)
 print(new2.count)
+
+
+//property observers
+struct StepCounter {
+        var totalSteps: Int = 50 {
+            willSet {
+                print("About to set total steps to \(newValue)")
+            }
+            didSet {
+                if totalSteps > oldValue {
+                    print("Added \(totalSteps - oldValue) Steps")
+                }
+            }
+        }
+    mutating func function() {
+        totalSteps += 1
+    }
+}
+
+var final = StepCounter()
+final.totalSteps = 120
+final.totalSteps = 140
+final.totalSteps = 140
+final.function()
+
+
+//type properties and methods
+struct Tempp {
+    static let boilingPoint = 100
+    //@MainActor static var boilingPoint = 100 -> Remember this @MainActor, used with var in static....runs the commnad on the main thread
+    
+    static func convertToFahrenheit(_ tempInF: Double) -> Double {
+        (((tempInF - 32) * 5) / 9)
+    }
+}
+
+let boilingPoint = Tempp.boilingPoint
+let currentTemp = Tempp.convertToFahrenheit(99)
