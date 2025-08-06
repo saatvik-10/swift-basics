@@ -49,3 +49,43 @@ var newArr  = [nums, myArr]
 print(newArr)
 print(newArr[0][1])
 print(newArr[1][2])
+
+
+//ways to create a map
+var myDict1 = [String: Int]()
+var myDict2 = Dictionary<String, Int>()
+var myDict3 : [String: Int] = [:]
+var myDict4 = ["Abc": 123, "Pqr": 321, "Mno": 213]
+var myDict5 = [123 : "abc"]
+
+print(myDict4)
+myDict4["Mno"] = 678
+print(myDict4)
+print(myDict4.keys)
+print(myDict4.values)
+print(myDict4.count)
+print(myDict4.removeValue(forKey: "Abc") ?? "") //GIVE THE ELEMENT'S VALUE
+print(myDict4.first ?? "")
+print(myDict4.reversed())
+myDict4["Mno"] = 345
+print(myDict4)
+var temp1 = myDict4.updateValue(456, forKey: "Mno") ?? 0
+var temp3 = myDict5.updateValue("mno", forKey: 321) ?? "default"
+    temp3 = myDict5.updateValue("mno", forKey: 321) ?? "default"
+    temp3 = myDict5.removeValue(forKey: 123) ?? ""
+var temp2 = myDict4.updateValue(897, forKey: "Efg") ?? 0 //at first, will get inserted and the output of value will be 0. In the second run the value will display
+temp2 = myDict4.updateValue(897, forKey: "Efg") ?? 0
+print(myDict4)
+myDict4.removeValue(forKey: "xyz")
+print(myDict4.removeValue(forKey: "xyz") ?? " ",terminator: "")
+print(temp1, temp2, temp3)
+print(myDict4["Mno"] ?? "")
+
+enum PersonValues{
+    case name(String)
+    case age(Int)
+    case location(String)
+}
+
+var myPerson: [String: PersonValues] = ["Name": .name("sf"), "Age": .age(69), "Location": .location("Akola")]
+print(myPerson)
